@@ -48,7 +48,7 @@ function Attendance() {
 const loadBatches = async () => {
   try {
     const res = await axios.get(
-      "${import.meta.env.VITE_API_URL}/batches"
+      `${import.meta.env.VITE_API_URL}/batches`
     );
 
     setBatches(res.data);
@@ -63,7 +63,7 @@ const loadBatches = async () => {
 
       for (const student of students) {
         await axios.post(
-          "${import.meta.env.VITE_API_URL}/attendance",
+          `${import.meta.env.VITE_API_URL}/attendance`,
           {
             student_id: student._id,
             attendance_date: today,

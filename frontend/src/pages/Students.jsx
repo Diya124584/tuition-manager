@@ -17,7 +17,7 @@ function Students() {
   const loadAllStudents = async () => {
     try {
       const res = await axios.get(
-        "${import.meta.env.VITE_API_URL}/students"
+        `${import.meta.env.VITE_API_URL}/students`
       );
 
       setAllStudents(res.data);
@@ -29,7 +29,7 @@ function Students() {
   const loadBatches = async () => {
   try {
     const res = await axios.get(
-      "${import.meta.env.VITE_API_URL}/batches"
+      `${import.meta.env.VITE_API_URL}/batches`
     );
 
     setBatches(res.data);
@@ -71,7 +71,7 @@ function Students() {
 
     try {
       await axios.post(
-        "${import.meta.env.VITE_API_URL}/students",
+        `${import.meta.env.VITE_API_URL}/students`,
         {
           student_name: studentName,
           batch: studentBatch,

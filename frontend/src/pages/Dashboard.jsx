@@ -12,11 +12,11 @@ function Dashboard() {
   const loadDashboard = async () => {
     try {
       const studentsRes = await axios.get(
-        "${import.meta.env.VITE_API_URL}/students"
+        `${import.meta.env.VITE_API_URL}/students`
       );
 
       const feesRes = await axios.get(
-        "${import.meta.env.VITE_API_URL}/fees"
+        `${import.meta.env.VITE_API_URL}/fees`
       );
 
       setStudents(studentsRes.data);

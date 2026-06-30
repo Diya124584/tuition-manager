@@ -11,8 +11,9 @@ function Batches() {
   const loadBatches = async () => {
     try {
       const res = await axios.get(
-        "${import.meta.env.VITE_API_URL}/batches"
-      );
+  `${import.meta.env.VITE_API_URL}/batches`
+);
+    
 
       setBatches(res.data);
 
@@ -38,7 +39,7 @@ function Batches() {
     try {
 
       await axios.post(
-        "${import.meta.env.VITE_API_URL}/batches",
+        `${import.meta.env.VITE_API_URL}/batches`,
         {
           batch_name,
           start_time,

@@ -15,7 +15,7 @@ function Announcements() {
 
   const loadBatches = async () => {
     try {
-      const res = await axios.get("${import.meta.env.VITE_API_URL}/batches");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/batches`);
       setBatches(res.data);
     } catch (err) {
       console.log(err);
@@ -32,7 +32,7 @@ function Announcements() {
       setLoading(true);
 
       const res = await axios.post(
-        "${import.meta.env.VITE_API_URL}/generate-announcement",
+        `${import.meta.env.VITE_API_URL}/generate-announcement`,
         {
           category,
           batch,
