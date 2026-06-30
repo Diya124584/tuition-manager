@@ -11,7 +11,7 @@ function Fees() {
   const loadFees = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/fees"
+        "${import.meta.env.VITE_API_URL}/fees"
       );
 
       setFeesData(res.data);
@@ -25,7 +25,7 @@ function Fees() {
       const today = new Date();
 
       const res = await axios.post(
-        "http://localhost:5000/fees/pay",
+        "${import.meta.env.VITE_API_URL}/fees/pay",
         {
           student_id: student._id,
           amount: student.monthly_fee,
@@ -66,7 +66,7 @@ function Fees() {
 
     try {
       await axios.put(
-        `http://localhost:5000/students/${student._id}`,
+        `${import.meta.env.VITE_API_URL}/students/${student._id}`,
         {
           monthly_fee: monthlyFee,
           advance_status: advanceStatus,

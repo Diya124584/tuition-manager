@@ -11,7 +11,7 @@ function Batches() {
   const loadBatches = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/batches"
+        "${import.meta.env.VITE_API_URL}/batches"
       );
 
       setBatches(res.data);
@@ -38,7 +38,7 @@ function Batches() {
     try {
 
       await axios.post(
-        "http://localhost:5000/batches",
+        "${import.meta.env.VITE_API_URL}/batches",
         {
           batch_name,
           start_time,
@@ -86,7 +86,7 @@ function Batches() {
     try {
 
       await axios.put(
-        `http://localhost:5000/batches/${batch._id}`,
+        `${import.meta.env.VITE_API_URL}/batches/${batch._id}`,
         {
           batch_name,
           start_time,
@@ -116,7 +116,7 @@ function Batches() {
     try {
 
       const res = await axios.delete(
-        `http://localhost:5000/batches/${id}`
+        `${import.meta.env.VITE_API_URL}/batches/${id}`
       );
 
       alert(res.data.message);

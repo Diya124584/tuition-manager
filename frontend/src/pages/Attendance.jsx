@@ -11,7 +11,7 @@ function Attendance() {
   const loadStudents = async (selectedBatch) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/students/batch/${selectedBatch}`
+        `${import.meta.env.VITE_API_URL}/students/batch/${selectedBatch}`
       );
 
       setStudents(res.data);
@@ -33,7 +33,7 @@ function Attendance() {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/attendance-register/${selectedBatch}`
+        `${import.meta.env.VITE_API_URL}/attendance-register/${selectedBatch}`
       );
 
       console.log("Attendance Register Response");
@@ -48,7 +48,7 @@ function Attendance() {
 const loadBatches = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/batches"
+      "${import.meta.env.VITE_API_URL}/batches"
     );
 
     setBatches(res.data);
@@ -63,7 +63,7 @@ const loadBatches = async () => {
 
       for (const student of students) {
         await axios.post(
-          "http://localhost:5000/attendance",
+          "${import.meta.env.VITE_API_URL}/attendance",
           {
             student_id: student._id,
             attendance_date: today,

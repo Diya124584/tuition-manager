@@ -17,7 +17,7 @@ function Students() {
   const loadAllStudents = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/students"
+        "${import.meta.env.VITE_API_URL}/students"
       );
 
       setAllStudents(res.data);
@@ -29,7 +29,7 @@ function Students() {
   const loadBatches = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/batches"
+      "${import.meta.env.VITE_API_URL}/batches"
     );
 
     setBatches(res.data);
@@ -41,7 +41,7 @@ function Students() {
     if (editingId) {
       try {
         await axios.put(
-          `http://localhost:5000/students/${editingId}`,
+          `${import.meta.env.VITE_API_URL}/students/${editingId}`,
           {
             student_name: studentName,
             batch: studentBatch,
@@ -71,7 +71,7 @@ function Students() {
 
     try {
       await axios.post(
-        "http://localhost:5000/students",
+        "${import.meta.env.VITE_API_URL}/students",
         {
           student_name: studentName,
           batch: studentBatch,
@@ -107,7 +107,7 @@ function Students() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/students/${id}`
+        `${import.meta.env.VITE_API_URL}/students/${id}`
       );
 
       alert("Student Deleted Successfully");
